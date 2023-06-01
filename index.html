@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Omnifood is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal tastes and nutritional needs."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +22,8 @@
     />
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Omnifood</title>
+    <link rel="stylesheet" href="css/queries.css" />
+    <title>Omnifood &mdash; Never cook again!</title>
   </head>
   <body>
     <header class="header">
@@ -23,13 +32,21 @@
       </a>
       <nav class="main__nav">
         <ul class="main__navlist">
-          <li><a class="main__navlink" href="#">How it works</a></li>
-          <li><a class="main__navlink" href="#">Meals</a></li>
-          <li><a class="main__navlink" href="#">Testimonials</a></li>
-          <li><a class="main__navlink" href="#">Pricing</a></li>
-          <li><a class="main__navlink nav__cta" href="#">Try for free</a></li>
+          <li><a class="main__navlink" href="#how">How it works</a></li>
+          <li><a class="main__navlink" href="#meals">Meals</a></li>
+          <li>
+            <a class="main__navlink" href="#testimonials">Testimonials</a>
+          </li>
+          <li><a class="main__navlink" href="#pricing">Pricing</a></li>
+          <li>
+            <a class="main__navlink nav__cta" href="#cta">Try for free</a>
+          </li>
         </ul>
       </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
     </header>
 
     <main>
@@ -44,10 +61,10 @@
               eat healthy again. Tailored to your personal tastes and
               nutritional needs.
             </p>
-            <a href="#" class="btn btn__full margin-right-sm"
+            <a href="#cta" class="btn btn__full margin-right-sm"
               >Start eating better</a
             >
-            <a href="#" class="btn btn__outline">Learn more &darr;</a>
+            <a href="#how" class="btn btn__outline">Learn more &darr;</a>
             <div class="delivered__meals">
               <div class="delivered__imgs">
                 <img src="img/customers/customer-1.jpg" alt="Customer photo" />
@@ -63,11 +80,20 @@
             </div>
           </div>
           <div class="hero__imgbox">
-            <img
+            <picture>
+              <source srcset="img/hero.webp" type="image/webp" />
+              <source srcset="img/hero-min.png" type="image/png" />
+              <img
+                src="img/hero-min.png"
+                class="hero__img"
+                alt="Woman enjoing food, meals in storage container, and food bowls on a table"
+              />
+            </picture>
+            <!-- <img
               src="img/hero.png"
               class="hero__img"
               alt="Woman enjoing food, meals in storage container, and food bowls on a table"
-            />
+            /> -->
           </div>
         </div>
       </section>
@@ -90,7 +116,7 @@
         </div>
       </section>
 
-      <section class="section__how">
+      <section class="section__how" id="how">
         <div class="container">
           <span class="subheading">How it works</span>
           <h2 class="heading__secondary">
@@ -155,7 +181,7 @@
         </div>
       </section>
 
-      <section class="section__meals">
+      <section class="section__meals" id="meals">
         <div class="container center-text">
           <span class="subheading">Meals</span>
           <h2 class="heading__secondary">
@@ -299,7 +325,7 @@
         </div>
       </section>
 
-      <section class="section__testimonials">
+      <section class="section__testimonials" id="testimonials">
         <div class="testimonials__container">
           <span class="subheading">Testimonials</span>
           <h2 class="heading__secondary">Once you try you can't go back</h2>
@@ -445,7 +471,7 @@
         </div>
       </section>
 
-      <section class="section__pricing">
+      <section class="section__pricing" id="pricing">
         <div class="container">
           <span class="subheading">Pricing</span>
           <h2 class="heading__secondary">
@@ -575,7 +601,7 @@
         </div>
       </section>
 
-      <section class="section__cta">
+      <section class="section__cta" id="cta">
         <div class="container">
           <div class="cta">
             <div class="cta__textbox">
@@ -586,13 +612,14 @@
                 first meal is on us!
               </p>
 
-              <form class="cta__form" action="#">
+              <form class="cta__form" name="sign-up" netlify>
                 <div>
                   <label for="fullname">Full name:</label>
                   <input
                     id="fullname"
                     type="text"
                     placeholder="John Smith"
+                    name="full-name"
                     required
                   />
                 </div>
@@ -602,13 +629,14 @@
                     id="email"
                     type="email"
                     placeholder="example@mail.com"
+                    name="email"
                     required
                   />
                 </div>
 
                 <div>
                   <label for="selectwhere">Where did you hear from us?</label>
-                  <select name="" id="selectwhere" required>
+                  <select name="" id="selectwhere" name="select-where" required>
                     <option value="">Please choose one option</option>
                     <option value="friends">Friends</option>
                     <option value="youtube">Youtube</option>
@@ -658,7 +686,8 @@
           </ul>
 
           <p class="copyright">
-            Copyright &copy; 2027 by Omnifood, Inc. All rights reserved
+            Copyright &copy; <span class="year">2027</span> by Omnifood, Inc.
+            All rights reserved
           </p>
         </div>
         <div class="address__column">
@@ -734,5 +763,10 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+    <script defer src="js/script.js"></script>
   </body>
 </html>

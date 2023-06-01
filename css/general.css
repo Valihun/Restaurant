@@ -59,7 +59,7 @@ html {
 		1 rem = 10 px;
 	Percentage of user's browser font-size setting
 	*/
-	font-size: 62.5%
+	font-size: 62.5%;
 }
 
 body {
@@ -67,6 +67,7 @@ body {
 	line-height: 1;
 	font-weight: 400;
 	color: #555;
+	overflow-x: hidden;
 }
 
 /*=============================================*/
@@ -189,7 +190,7 @@ body {
 	background-color: #45260a;
 	color: #fdf2e9;
 	padding: 1.2rem;
-	align-self: end;
+	/* align-self: end; */
 	margin-top: 2.8rem;
 }
 
